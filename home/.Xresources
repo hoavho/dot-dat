@@ -1,0 +1,8 @@
+! Line starts with ! is ignored (so you can write comments)
+! Xft.dpi: 220 => for Macbook Pro 2015 15' Retina (due to HiDPI)
+Xft.dpi: 220
+Xft.autohint: 0
+Xft.hintstyle: hintful
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
