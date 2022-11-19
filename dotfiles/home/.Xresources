@@ -1,7 +1,11 @@
-! Line starts with ! is ignored (so you can write comments)
-! Xft.dpi: 220 => for Macbook Pro 2015 15' Retina (due to HiDPI)
-Xft.dpi: 220
+!Line starts with ! is ignored (so you can write comments)
+!Xft.dpi: 192 => for Macbook Pro 2015 15in Retina (due to HiDPI)
+!Macbook Pro 2015 15in Retina has DPI = 220
+!but Arch Linux doc recommends to set Xft.dpi = multiples of 96 e.g. 192 = 96 x 2
+!and it works well so I set Xft.dpi = 192 (instead of 220)
+Xft.dpi: 192 
 Xft.autohint: 0
+Xfs.lcdfilter: lcddefault
 Xft.hintstyle: hintful
 Xft.hinting: 1
 Xft.antialias: 1

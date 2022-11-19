@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -51,5 +35,11 @@ fi
 ####### My configs are below #######
 # Keyboard Layout
 setxkbmap us &
+
+# Configs for MacbookPro 15' 2015 Retina
+xrandr --output HDMI-3 --off
+xrandr --output eDP-1 --mode 2880x1800 --dpi 192
+sleep 1
+xrandr --output HDMI-3 --mode 3840x2160 --dpi 160 --left-of eDP-1
 
 exec dwm
