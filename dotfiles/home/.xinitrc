@@ -36,10 +36,19 @@ fi
 # Keyboard Layout
 setxkbmap us &
 
-# Configs for MacbookPro 15' 2015 Retina
+# BEGIN - Display Configs for MacbookPro 15' 2015 Retina
 xrandr --output HDMI-3 --off
 xrandr --output eDP-1 --mode 2880x1800 --dpi 192
 sleep 1
 xrandr --output HDMI-3 --mode 3840x2160 --dpi 160 --left-of eDP-1
+# END - Display Configs for MacbookPro 15' 2015 Retina
+
+# Start dwmblocks
+dwmblocks &
+
+# Loop dwm (so we can restart dwm and it automatically starts up right away)
+#while true; do
+#	dwm > /dev/null 2>&1
+#done
 
 exec dwm
