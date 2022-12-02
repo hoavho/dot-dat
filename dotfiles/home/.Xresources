@@ -1,12 +1,32 @@
 !Line starts with ! is ignored (so you can write comments)
+
+!! Transparency (0-1):
+*.alpha: 0.8
+
+!! Set a default font and font size as below:
+!! This setting will override application setting if they supports Xresources
+!! e.g. dwm + st config.h
+*.font: monospace:size=16:antialias=true:autohint=true
+
 !Xft.dpi: 192 => for Macbook Pro 2015 15in Retina (due to HiDPI)
-!Macbook Pro 2015 15in Retina has DPI = 220
+!Macbook Pro 2015 15in Retina has DPI = 220 (according to goodcalculators.com -> ppi = 226)
+!Dell 27in 4K -> PPI = 164
+!https://goodcalculators.com/ppi-pixels-per-inch-calculator/
 !but Arch Linux doc recommends to set Xft.dpi = multiples of 96 e.g. 192 = 96 x 2
 !and it works well so I set Xft.dpi = 192 (instead of 220)
-Xft.dpi: 192 
+Xft.dpi: 226 
 Xft.autohint: 0
 Xfs.lcdfilter: lcddefault
 Xft.hintstyle: hintful
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+!! Settings here will override config.h of dwm
+!! dwm font + dmenufont CANNOT be set via XResources 
+dwm.selbordercolor: #C70039 
+
+!! Settings here will override config.h of st
+st.font: monospace:size=14:antialias=true:autohint=true
+!st.font: Nimbus Mono:size=12:antialias=true:autohint=true
+!st.font: Source Code Pro:size=12:antialias=true:autohint=true
