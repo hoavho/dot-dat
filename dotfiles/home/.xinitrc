@@ -38,9 +38,9 @@ setxkbmap us &
 
 # BEGIN - Display Configs for MacbookPro 15' 2015 Retina
 xrandr --output HDMI-3 --off
-xrandr --output eDP-1 --mode 2880x1800 --dpi 192
+xrandr --output eDP-1 --mode 2880x1800 --dpi 226
 sleep 1
-xrandr --output HDMI-3 --mode 3840x2160 --dpi 160 --left-of eDP-1
+xrandr --output HDMI-3 --mode 3840x2160 --dpi 164 --left-of eDP-1
 # END - Display Configs for MacbookPro 15' 2015 Retina
 
 # Start dwmblocks
