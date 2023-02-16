@@ -24,9 +24,14 @@ Xft.rgba: rgb
 
 !! Settings here will override config.h of dwm
 !! dwm font + dmenufont CANNOT be set via XResources 
-dwm.selbordercolor: #C70039 
+! #C70039 - red - smooth
+! #FBB034 - orange 
+! #FFDD00 - yellow
+!dwm.selbordercolor: #C70039 
+!dwm.selbordercolor: #FBB034 
+dwm.selbordercolor: #FFDD00
 
 !! Settings here will override config.h of st
-st.font: monospace:size=14:antialias=true:autohint=true
 !st.font: Nimbus Mono:size=12:antialias=true:autohint=true
 !st.font: Source Code Pro:size=12:antialias=true:autohint=true
+st.font: monospace:size=14:antialias=true:autohint=true
