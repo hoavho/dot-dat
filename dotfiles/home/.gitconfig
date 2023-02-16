@@ -3,3 +3,9 @@
 	email = hoviethoa@gmail.com
 [core]
 	editor = vim
+[init]
+	defaultBranch = master
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
