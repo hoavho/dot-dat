@@ -1,0 +1,48 @@
+# BEGIN: Config to display git branch/status info using vcs_info
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+# Enable Substitution in the PROMPT
+# e.g. using the format ${variable_name}
+setopt prompt_subst
+
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+#
++vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        hook_com[staged]+='!' # signify new files with a bang
+    fi
+}
+
+zstyle ':vcs_info:*' check-for-changes true
+#zstyle ':vcs_info:*' unstagedstr ' *'
+#zstyle ':vcs_info:*' stagedstr ' +'
+
+#zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%{$reset_color%}"
+
+#zstyle ':vcs_info:git*' formats "%{$fg[grey]%}%s %{$reset_color%}%r/%S%{$fg[grey]%} %{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
+
+#zstyle ':vcs_info:git*' formats "%s  %r/%S %b (%a) %m%u%c "
+#zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b %m%u%c "
+
+#zstyle ':vcs_info:*'    formats '(%{%{$fg[blue]}%b%{$reset_color}%u%c)}'
+#zstyle ':vcs_info:*'    actionformats '(%b|%a%u%c)'
+
+# Lines for vcs_info prompt configuration
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} +%{%b%f%}'
+zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} *%{%b%f%}'
+zstyle ':vcs_info:*' formats '%{%f%}%{%F{green}%}(%25>…>%b%<<)%{%f%}%c%u'
+zstyle ':vcs_info:*' actionformats '%{%f%}%{%F{red}%}(%a|%m)%{%f%}'
+#zstyle ':vcs_info:*' nvcsformats '%{%F{cyan}%}%~%{%f%}'
+zstyle ':vcs_info:git:*' patch-format '%10>…>%p%<< (%n applied)'
+zstyle ':vcs_info:*+set-message:*' hooks home-path
+function +vi-home-path() {
+  # Replace $HOME with ~
+  hook_com[base]="$(echo ${hook_com[base]} | sed "s/${HOME:gs/\//\\\//}/~/" )"
+}
+
+# END: Config to display git branch/status info using vcs_info
