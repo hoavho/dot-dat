@@ -20,7 +20,8 @@ zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character t
 zmodload zsh/complist
 # Load and initialise completion system
 autoload -U compinit
-compinit
+# TODO - compinit is run every time I start new terminal -> check .zcompdump file timestamp -> can we improve it ?
+compinit -d $ZDOTDIR/.zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)		# Include hidden files.
 # ################################################
 # END: Basic auto/tab complete:
@@ -29,10 +30,12 @@ _comp_options+=(globdots)		# Include hidden files.
 # ================================================
 # BEGIN: History config
 # ================================================
-# ---- History cache config
+# ---- General History config
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+
+# ---- History cache config
+# Note: history cache dir has to be created first before history file can be written
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # man zshoptions
@@ -55,6 +58,9 @@ setopt hist_verify            # show command with history expansion to user befo
 
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
+
+# Enable features specific to your environment
+GOOGLE_CLOUD_SDK_ENABLED=   # Set to 1 to enable Google Cloud SDK config
 
 # ################################################
 # Source/Load other config files and plugins
