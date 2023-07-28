@@ -22,8 +22,11 @@ export PATH="$PATH:$HOME/.local/bin"
 export CARDANO_NODE_SOCKET_PATH=/home/hoa/cardano-testnet/node.socket
 
 # gcloud sdk
-source /etc/profile.d/google-cloud-sdk.sh 
-source /opt/google-cloud-sdk/completion.zsh.inc
+if [ -n "${GOOGLE_CLOUD_SDK_ENABLED:+1}" ]; then
+  echo "google-cloud-sdk is enabled"
+  source /etc/profile.d/google-cloud-sdk.sh 
+  source /opt/google-cloud-sdk/completion.zsh.inc
+fi
 
 # GHCup - For haskell Dev
 [ -f "/home/hoa/.ghcup/env" ] && source "/home/hoa/.ghcup/env" # ghcup-env
