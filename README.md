@@ -4,7 +4,7 @@ Hoa Ho's .dotfiles, config files, and util scripts
 # References
 - https://dotfiles.github.io/
 
-# Installing
+# Install
 You will need `git` and GNU `stow`
 
 Run stow to symlink everything or just select what you want
@@ -30,4 +30,11 @@ If you clone to `~/workspace` dir
 ```
 stow --dir=/Users/hoavho/workspace/dot-dat --target=/Users/hoavho zsh
 stow --dir=${PWD} --target=$HOME zsh
+```
+
+# Uninstall
+
+Unstow / uninstall a package
+```
+stow --target=$HOME --delete zsh
 ```
