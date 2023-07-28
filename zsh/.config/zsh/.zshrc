@@ -27,13 +27,28 @@ _comp_options+=(globdots)		# Include hidden files.
 # ################################################
 
 # ================================================
-# BEGIN: History in cache directory
+# BEGIN: History config
 # ================================================
+# ---- History cache config
 HISTSIZE=10000000
 SAVEHIST=10000000
+HISTDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+
 # man zshoptions
-setopt SHARE_HISTORY
+setopt SHARE_HISTORY         # share command history data
+
+# Ensures that commands are added to the history immediately (otherwise, this would happen only when the shell exits, and you could lose history upon unexpected/unclean termination of the shell)
+setopt inc_append_history
+
+# Tip: you can `history` command to view the last n commands displays the timestamp information, in addition to the actual command
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_reduce_blanks     # remove unnecessary blanks
+setopt hist_verify            # show command with history expansion to user before running it
+
 # ================================================
 # END: History in cache directory
 # ================================================
@@ -63,6 +78,20 @@ plug "zap-zsh/fzf"
 # ================================================
 # Load other configs (e.g. programs' specific configs)
 zsh_add_file "jenv-config"
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    plug "$ZDOTDIR/homebrew-config.zsh"
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+
 
 # IMPORTANT: zsh-syntax-highlighting MUST be sourced at the end
 # WHY? See https://github.com/zsh-users/zsh-syntax-highlighting
