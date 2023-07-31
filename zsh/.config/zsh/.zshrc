@@ -60,7 +60,8 @@ setopt hist_verify            # show command with history expansion to user befo
 source "$ZDOTDIR/zsh-functions"
 
 # Enable features specific to your environment
-GOOGLE_CLOUD_SDK_ENABLED=   # Set to 1 to enable Google Cloud SDK config
+GOOGLE_CLOUD_SDK_ENABLED=   # Set empty to disable, Set to 1 to enable Google Cloud SDK config
+PYENV_ENABLED=1		    # Set to 1 to enable pyenv
 
 # ################################################
 # Source/Load other config files and plugins
@@ -85,6 +86,7 @@ plug "zap-zsh/fzf"
 # Load other configs (e.g. programs' specific configs)
 zsh_add_file "jenv-config"
 
+# Homebrew
 case `uname` in
   Darwin)
     # commands for OS X go here
@@ -97,6 +99,9 @@ case `uname` in
     # commands for FreeBSD go here
   ;;
 esac
+
+# pyenv
+plug "$ZDOTDIR/pyenv-config.zsh"
 
 
 # IMPORTANT: zsh-syntax-highlighting MUST be sourced at the end
