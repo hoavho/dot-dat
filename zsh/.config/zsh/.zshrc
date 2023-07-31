@@ -62,30 +62,30 @@ source "$ZDOTDIR/zsh-functions"
 # Enable features specific to your environment
 GOOGLE_CLOUD_SDK_ENABLED=    # Set empty to disable, Set to 1 to enable Google Cloud SDK config
 PYENV_ENABLED=1		     # Set to 1 to enable pyenv
-PYENV_VIRTUAL_ENV_ENABLED=1  # Set to 1 to enable pyenv
+PYENV_VIRTUAL_ENV_ENABLED=1  # Set to 1 to enable
+SDKMAN_ENABLED=1	     # Set to 1 to enable
 
 # ################################################
 # Source/Load other config files and plugins
-zsh_add_file "zsh-exports"
-zsh_add_file "zsh-aliases"
-#zsh_add_file "zsh-vsc-info" # Load this before zsh-prompt
+plug "$ZDOTDIR/exports.zsh"
+plug "$ZDOTDIR/aliases.zsh"
 plug "hoavho/ohmyzsh-git-prompt" # Load this before zsh-prompt
 plug "hoavho/ohmyzsh-vi-mode"
 plug "$ZDOTDIR/ohmyzsh-vi-mode-config.zsh"
-zsh_add_file "zsh-prompt"
-#zsh_add_file "zsh-vim-mode"
+plug "$ZDOTDIR/prompt.zsh"
 
 ZSH_EVALCACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-evalcache"
 ZSH_EVALCACHE_DISABLE=false
-zsh_add_plugin "mroth/evalcache"
+plug "mroth/evalcache"
 
-plug "shihyuho/zsh-jenv-lazy"
+# lazy loading jenv - since "jenv init"  slows down prompt
+plug "shihyuho/zsh-jenv-lazy"   # Run "jenv init" when jenv is called first time 
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/fzf"
 
 # ================================================
 # Load other configs (e.g. programs' specific configs)
-zsh_add_file "jenv-config"
+plug "$ZDOTDIR/jenv-config.zsh"
 
 # Homebrew
 case `uname` in
@@ -105,19 +105,9 @@ esac
 plug "$ZDOTDIR/pyenv-config.zsh"
 plug "$ZDOTDIR/pyenv-virtualenv-config.zsh"  # configure this after pyenv-config.zsh
 
-
-# IMPORTANT: zsh-syntax-highlighting MUST be sourced at the end
-# WHY? See https://github.com/zsh-users/zsh-syntax-highlighting
-# WARNING: with zsh-jenv-lazy -> This will NOT be activated
-# -> use fast-syntax-highlighting INSTEAD
-# Notes:
-# - If you have jenv installed -> eval $("jenv init") MUST be called for zsh-syntax-highlighting working.
-#zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-
 # IMPORTANT: fast-syntax-highlighting SHOULD be sourced at the end
 plug "zdharma-continuum/fast-syntax-highlighting"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+plug "$ZDOTDIR/sdkman-config.zsh"
 
