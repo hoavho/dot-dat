@@ -50,32 +50,6 @@ function plug() {
     _try_source && { ZSH_INSTALLED_PLUGINS+="$plugin_name" && return 0 } || echo "❌ $plugin_name not activated" && return 1
 }
 
-function zsh_add_file() {
-    #echo "zsh_add_file - " $1
-    #[ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
-    FILE_FULL_PATH="$ZDOTDIR/$1"
-
-    if [ -f "$FILE_FULL_PATH" ]; then
-	#echo "Sourcing $FILE_FULL_PATH"
-	source "$FILE_FULL_PATH"
-    else
-	echo "NOT FOUND - $FILE_FULL_PATH"
-    fi
-}
-
-function zsh_add_plugin() {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    #echo $PLUGIN_NAME
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
-	#echo "Sourcing plugin"
-        # For plugins
-        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-    fi
-}
-
 # Measure shell startup time
 function timesh() {
   shell=${1-$SHELL}
