@@ -57,7 +57,7 @@ setopt hist_verify            # show command with history expansion to user befo
 # ================================================
 
 # Useful Functions
-source "$ZDOTDIR/zsh-functions"
+source "$ZDOTDIR/functions.zsh"
 
 # Enable features specific to your environment
 GOOGLE_CLOUD_SDK_ENABLED=    # Set empty to disable, Set to 1 to enable Google Cloud SDK config
