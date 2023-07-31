@@ -60,8 +60,9 @@ setopt hist_verify            # show command with history expansion to user befo
 source "$ZDOTDIR/zsh-functions"
 
 # Enable features specific to your environment
-GOOGLE_CLOUD_SDK_ENABLED=   # Set empty to disable, Set to 1 to enable Google Cloud SDK config
-PYENV_ENABLED=1		    # Set to 1 to enable pyenv
+GOOGLE_CLOUD_SDK_ENABLED=    # Set empty to disable, Set to 1 to enable Google Cloud SDK config
+PYENV_ENABLED=1		     # Set to 1 to enable pyenv
+PYENV_VIRTUAL_ENV_ENABLED=1  # Set to 1 to enable pyenv
 
 # ################################################
 # Source/Load other config files and plugins
@@ -102,6 +103,7 @@ esac
 
 # pyenv
 plug "$ZDOTDIR/pyenv-config.zsh"
+plug "$ZDOTDIR/pyenv-virtualenv-config.zsh"  # configure this after pyenv-config.zsh
 
 
 # IMPORTANT: zsh-syntax-highlighting MUST be sourced at the end
