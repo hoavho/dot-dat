@@ -37,4 +37,5 @@ stow --dir=${PWD} --target=$HOME zsh
 Unstow / uninstall a package
 ```
 stow --target=$HOME --delete zsh
+stow --target=$HOME --delete nvim
 ```
