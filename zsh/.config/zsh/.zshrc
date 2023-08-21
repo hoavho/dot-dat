@@ -81,7 +81,6 @@ plug "mroth/evalcache"
 # lazy loading jenv - since "jenv init"  slows down prompt
 plug "shihyuho/zsh-jenv-lazy"   # Run "jenv init" when jenv is called first time 
 plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/fzf"
 
 # ================================================
 # Load other configs (e.g. programs' specific configs)
@@ -100,6 +99,8 @@ case `uname` in
     # commands for FreeBSD go here
   ;;
 esac
+
+plug "zap-zsh/fzf" # configure this after homebrew-config.zsh
 
 # pyenv
 plug "$ZDOTDIR/pyenv-config.zsh"
