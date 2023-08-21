@@ -3,7 +3,7 @@ case `uname -p` in
     # commands for Mac intel chip
     eval "$(/usr/local/bin/brew shellenv)"
   ;;
-  applesilicon)
+  arm)
     # commands for Mac Apple silicon chip
     eval "$(/opt/homebrew/bin/brew shellenv)"
   ;;
