@@ -60,6 +60,7 @@ setopt hist_verify            # show command with history expansion to user befo
 source "$ZDOTDIR/functions.zsh"
 
 # Enable features specific to your environment
+# RECOMMENDED to override these values in your zshrc.private.zsh
 GOOGLE_CLOUD_SDK_ENABLED=    # Set empty to disable, Set to 1 to enable Google Cloud SDK config
 PYENV_ENABLED=1		         # Set to 1 to enable pyenv
 PYENV_VIRTUAL_ENV_ENABLED=1  # Set to 1 to enable
@@ -104,7 +105,7 @@ case `uname` in
   ;;
 esac
 
-plug "zap-zsh/fzf" # configure this after homebrew-config.zsh
+plug "zap-zsh/fzf" # configure this after homebrew-config.zsh IF fzf is installed by homebrew
 
 # pyenv
 plug "$ZDOTDIR/pyenv-config.zsh"
