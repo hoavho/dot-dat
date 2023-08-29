@@ -66,6 +66,7 @@ PYENV_ENABLED=1		         # Set to 1 to enable pyenv
 PYENV_VIRTUAL_ENV_ENABLED=1  # Set to 1 to enable
 SDKMAN_ENABLED=1	         # Set to 1 to enable
 DIRENV_ENABLED=1             # Set to 1 to enable
+NVM_ENABLED=                 # Set empty to disable, Set to 1 to enable NVM
 
 # *.private.zsh are .gitignore-d -> add environment overrides in there for each PC/laptop/workstation environment
 plug "$ZDOTDIR/zshrc.private.zsh"
@@ -113,6 +114,9 @@ plug "$ZDOTDIR/pyenv-virtualenv-config.zsh"  # configure this after pyenv-config
 
 # direnv
 plug "$ZDOTDIR/direnv-config.zsh"
+
+# nvm
+plug "$ZDOTDIR/nvm-config.zsh"
 
 # IMPORTANT: fast-syntax-highlighting SHOULD be sourced at the end
 plug "zdharma-continuum/fast-syntax-highlighting"
