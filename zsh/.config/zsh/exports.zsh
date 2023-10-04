@@ -38,3 +38,17 @@ export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
 # Spark
 export SPARK_HOME=/opt/spark-3.3.2-bin-hadoop3
 export PATH=$SPARK_HOME/bin:$PATH
+
+# Python
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export PATH=/usr/local/opt/python/libexec/bin:$PATH
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
