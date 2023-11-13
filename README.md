@@ -6,7 +6,7 @@ Hoa Ho's .dotfiles, config files, and util scripts
 
 # Prerequisites
 - GNU `stow`
-- fzf to reverse search history
+- fzf to reverse search zsh history
 
 # Install
 You will need `git` and GNU `stow`
