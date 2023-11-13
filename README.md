@@ -4,6 +4,10 @@ Hoa Ho's .dotfiles, config files, and util scripts
 # References
 - https://dotfiles.github.io/
 
+# Prerequisites
+- GNU `stow`
+- fzf to reverse search history
+
 # Install
 You will need `git` and GNU `stow`
 
