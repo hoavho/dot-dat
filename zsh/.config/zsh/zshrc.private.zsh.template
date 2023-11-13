@@ -7,3 +7,4 @@ SDKMAN_ENABLED=1	        # Set to 1 to enable
 DIRENV_ENABLED=             	# Set to 1 to enable
 NVM_ENABLED=                 	# Set empty to disable, Set to 1 to enable NVM
 X_SYSTEM=1
+PROMPT_FORMAT=1			# Default = 1

@@ -25,7 +25,28 @@ NEWLINE=$'\n'
 
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 #PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b$NEWLINE%# "
-PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b"
+
+
+# zsh PROMPT explanation (See "man zshmisc -> section "SIMPLE PROMPT ESCAPES")
+# %n = $USERNAME
+# %M = full machine hostname
+# %~ =  As %d and %/, but if the current working directory starts with $HOME, that part is replaced by a ‘~'
+# %1d = Display current working directory only -> See %d for details
+
+# [username@hostname fullpath]
+PROMPT_FORMAT1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b"
+# [frw.d@journey current_dir]
+PROMPT_FORMAT2="%B%{$fg[red]%}[%{$fg[yellow]%}frw.d%{$fg[green]%}@%{$fg[blue]%}journey %{$fg[magenta]%}%1d%{$fg[red]%}]%{$reset_color%}%b"
+
+if [[ "$PROMPT_FORMAT" == 1 ]]; 
+then
+	PROMPT=$PROMPT_FORMAT1
+elif [[ "$PROMPT_FORMAT" == 2 ]]; 
+then
+	PROMPT=$PROMPT_FORMAT2
+else # default
+	PROMPT=$PROMPT_FORMAT1
+fi
 
 #PROMPT="%B%{$fg[yellow]%}⚡% %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
 #PROMPT+="\$vcs_info_msg_0_ "
