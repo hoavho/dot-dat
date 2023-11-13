@@ -60,13 +60,16 @@ setopt hist_verify            # show command with history expansion to user befo
 source "$ZDOTDIR/functions.zsh"
 
 # Enable features specific to your environment
-# RECOMMENDED to override these values in your zshrc.private.zsh
-GOOGLE_CLOUD_SDK_ENABLED=    # Set empty to disable, Set to 1 to enable Google Cloud SDK config
-PYENV_ENABLED=1		         # Set to 1 to enable pyenv
-PYENV_VIRTUAL_ENV_ENABLED=1  # Set to 1 to enable
-SDKMAN_ENABLED=1	         # Set to 1 to enable
-DIRENV_ENABLED=1             # Set to 1 to enable
-NVM_ENABLED=                 # Set empty to disable, Set to 1 to enable NVM
+# ! Disable ALL features by default.
+# ! To enable any feature, it's RECOMMENDED to override these values in 
+# your zshrc.private.zsh
+GOOGLE_CLOUD_SDK_ENABLED=    	# Set empty to disable, Set to 1 to enable Google Cloud SDK config
+PYENV_ENABLED=		     	# Set to 1 to enable pyenv
+PYENV_VIRTUAL_ENV_ENABLED=   	# Set to 1 to enable
+SDKMAN_ENABLED=	         	# Set to 1 to enable
+DIRENV_ENABLED=             	# Set to 1 to enable
+NVM_ENABLED=                 	# Set empty to disable, Set to 1 to enable NVM
+X_SYSTEM=				
 
 # *.private.zsh are .gitignore-d -> add environment overrides in there for each PC/laptop/workstation environment
 plug "$ZDOTDIR/zshrc.private.zsh"
