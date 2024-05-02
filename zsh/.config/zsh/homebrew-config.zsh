@@ -9,5 +9,7 @@ case `uname -p` in
   ;;
 esac
 
-eval "$(direnv hook zsh)"
+if [ -n "${DIRENV_ENABLED:+1}" ]; then
+    eval "$(direnv hook zsh)"
+fi
 
