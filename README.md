@@ -33,7 +33,10 @@ stow zsh # Just my zsh config
 If you clone to `~/workspace` dir
 ```
 stow --dir=/Users/hoavho/workspace/dot-dat --target=/Users/hoavho zsh
+
+cd ~/workspace/dot-dat
 stow --dir=${PWD} --target=$HOME zsh
+stow --target=$HOME zsh
 ```
 
 # Uninstall
@@ -42,4 +45,10 @@ Unstow / uninstall a package
 ```
 stow --target=$HOME --delete zsh
 stow --target=$HOME --delete nvim
+```
+
+# Notes for zsh
+Need to create `~/.cache/zsh` for zsh HISTORY to work properly
+```
+mkdir ~/.cache/zsh
 ```
