@@ -63,13 +63,15 @@ source "$ZDOTDIR/functions.zsh"
 # ! Disable ALL features by default.
 # ! To enable any feature, it's RECOMMENDED to override these values in 
 # your zshrc.private.zsh
-GOOGLE_CLOUD_SDK_ENABLED=    	# Set empty to disable, Set to 1 to enable Google Cloud SDK config
-PYENV_ENABLED=		     	# Set to 1 to enable pyenv
-PYENV_VIRTUAL_ENV_ENABLED=   	# Set to 1 to enable
-SDKMAN_ENABLED=	         	# Set to 1 to enable
-DIRENV_ENABLED=             	# Set to 1 to enable
-NVM_ENABLED=                 	# Set empty to disable, Set to 1 to enable NVM
+GOOGLE_CLOUD_SDK_ENABLED=     # Set empty to disable, Set to 1 to enable Google Cloud SDK config
+PYENV_ENABLED=                # Set to 1 to enable pyenv
+PYENV_VIRTUAL_ENV_ENABLED=    # Set to 1 to enable
+SDKMAN_ENABLED=               # Set to 1 to enable
+DIRENV_ENABLED=               # Set to 1 to enable
+NVM_ENABLED=                  # Set empty to disable, Set to 1 to enable NVM
+GPG_ENABLED=
 X_SYSTEM=				
+PROMPT_FORMAT=1
 
 # *.private.zsh are .gitignore-d -> add environment overrides in there for each PC/laptop/workstation environment
 plug "$ZDOTDIR/zshrc.private.zsh"
@@ -120,6 +122,9 @@ plug "$ZDOTDIR/direnv-config.zsh"
 
 # nvm
 plug "$ZDOTDIR/nvm-config.zsh"
+
+# gpg
+plug "$ZDOTDIR/gpg-config.zsh"
 
 # IMPORTANT: fast-syntax-highlighting SHOULD be sourced at the end
 plug "zdharma-continuum/fast-syntax-highlighting"
