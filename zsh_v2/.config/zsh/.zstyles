@@ -1,0 +1,37 @@
+#!/bin/zsh
+#
+# .zstyles - zstyle settings for features/plugins that need them.
+#
+
+#
+# Antidote
+#
+
+: ${ANTIDOTE_HOME:=${XDG_CACHE_HOME:-~/.cache}/repos}
+
+antidote_repo=$ANTIDOTE_HOME/mattmc3/antidote
+
+zstyle ':antidote:home' path $ANTIDOTE_HOME
+zstyle ':antidote:repo' path $antidote_repo
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+zstyle ':antidote:plugin:*' defer-options '-p'
+zstyle ':antidote:*' zcompile 'yes'
+
+
+#
+# Prompt
+#
+
+# Set Prompt
+#zstyle ':zephyr:plugin:prompt' theme starship frwd
+zstyle ':zephyr:plugin:prompt' theme starship nerd-font-symbols
+
+#
+# Completions
+
+# Available completion styles: gremlin, ohmy, prez, zshzoo
+# You can add your own too. To see all available completion styles
+# run 'compstyle -l'
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
+
+
