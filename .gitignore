@@ -2,3 +2,5 @@
 *.private.zsh
 zsh/.config/zsh/plugins/
 nvim/.config/nvim/lazyvim.json
+*.zwc
+*.zwc.old
